@@ -3821,6 +3821,11 @@ a {
   .welcome-hero > * { position: relative; z-index: 1; }
   .welcome-hero > .welcome-lang { position: absolute; }
 }
+/* Desktop hero copy one step smaller, so the street keeps the stage. */
+@media (min-width: 960px) {
+  .welcome-hero .welcome-brand,
+  .welcome-hero .welcome-actions { zoom: 0.9; }
+}
 @media (min-width: 960px) and (max-height: 920px) {
   /* Short screens: keep the buttons left of MahaNakhon (about 53% across). */
   .welcome-actions { grid-template-columns: repeat(2, minmax(220px, min(300px, 22vw))); }

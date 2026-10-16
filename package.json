@@ -1,0 +1,40 @@
+{
+  "name": "walk-we",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Walk We \u2014 shadier daytime and safer night-time walking routes in Bangkok (mobile-first PWA)",
+  "workspaces": [
+    "config",
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm --workspace @walkwe/web run dev",
+    "build": "npm --workspace @walkwe/web run build",
+    "preview": "npm --workspace @walkwe/web run preview",
+    "typecheck": "tsc -p config && tsc -p packages/core && tsc -p packages/data && tsc -p apps/web && tsc -p apps/ai-proxy",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "npm --workspace @walkwe/web run test:e2e",
+    "photos": "tsx scripts/build-photos.ts",
+    "lighthouse": "tsx scripts/lighthouse.ts",
+    "incidents:extract": "tsx scripts/extract-incidents.ts",
+    "ai:dev": "npm --workspace @walkwe/ai-proxy run dev",
+    "ai:deploy": "npm --workspace @walkwe/ai-proxy run deploy"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.134.0",
+    "@types/d3-delaunay": "^6.0.4",
+    "@types/node": "^22.10.0",
+    "d3-delaunay": "^6.0.4",
+    "lighthouse": "^13.5.0",
+    "sharp": "^0.35.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.4"
+  },
+  "type": "module"
+}

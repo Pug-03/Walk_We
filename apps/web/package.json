@@ -1,0 +1,38 @@
+{
+  "name": "@walkwe/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-sans-thai": "^5.1.0",
+    "@walkwe/config": "*",
+    "@walkwe/core": "*",
+    "@walkwe/data": "*",
+    "framer-motion": "^11.11.17",
+    "lucide-react": "^1.57.0",
+    "maplibre-gl": "^6.14.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.4",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.50.0",
+    "@types/geojson": "^7946.0.16",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.4",
+    "vite-plugin-pwa": "^2.0.0",
+    "workbox-build": "^7.4.1",
+    "workbox-window": "^7.4.1",
+    "wrangler": "^4.151.0"
+  }
+}

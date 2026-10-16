@@ -1,0 +1,95 @@
+{
+  "updatedAt": "2026-10-15T13:07:29.735Z",
+  "photos": {
+    "siam-cw-01.jpg": {
+      "width": 960,
+      "height": 720,
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAwAwCdASoYABIAPu1wr1IppiQiqAgBMB2JaWsJVEkJzMsAAP7vxJftj6ecZ0hrF7bHWA4yAAqwPxwO1kdz2PInkBNAAA==",
+      "placeholder": true,
+      "widths": [
+        480,
+        960
+      ]
+    },
+    "siam-cw-02.jpg": {
+      "width": 960,
+      "height": 720,
+      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAABQAwCdASoYABIAPu1ur1KppiQiqAgBMB2JaQC45BZly02PAAD+7+GN+VHQ28JcFSs4Q1G5k2B0GOcl5pQUAAAA",
+      "placeholder": true,
+      "widths": [
+        480,
+        960
+      ]
+    },
+    "siam-cw-03.jpg": {
+      "width": 960,
+      "height": 720,
+      "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAwCdASoYABIAPu1mqk8ppaOiKA1RMB2JZwDGQBXzSWF9KuP3lIQAAP7wBFtXqdAzx+78pK7TvS4tZwkAAAAA",
+      "placeholder": true,
+      "widths": [
+        480,
+        960
+      ]
+    },
+    "siam-cw-04.jpg": {
+      "width": 960,
+      "height": 720,
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAABQAwCdASoYABIAPu1wr1KppiQrqAgBcB2JaQC7ABZmArGUQAD+7+e5Xocdh2AVZ78Y3NBwrCOZAwcHqT2I1A1FZiusgkY3Wj0AAA==",
+      "placeholder": true,
+      "widths": [
+        480,
+        960
+      ]
+    },
+    "siam-cw-05.jpg": {
+      "width": 960,
+      "height": 720,
+      "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACQAwCdASoYABIAPu1srFEppaQiqAqpMB2JZwDA3BWEkeXRSdkgAP7vhCU3WUPiGJpIWVefLayxXtqZJ+5h2756aWlpW2D/QwoAAA==",
+      "placeholder": true,
+      "widths": [
+        480,
+        960
+      ]
+    },
+    "siam-cw-06.jpg": {
+      "width": 960,
+      "height": 720,
+      "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAwCdASoYABIAPu1oqU+ppiOjKA1RMB2JZ2u4WKIJjdQwAP7vWnvHTJ9qd6Rh1uomhN8o8CtNXBH9LtrEYCwMBlwAAAAA",
+      "placeholder": true,
+      "widths": [
+        480,
+        960
+      ]
+    },
+    "siam-cw-07.jpg": {
+      "width": 960,
+      "height": 720,
+      "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABQBACdASoYABIAPu1or1AppaSjKAqpMB2JaQDHMBEcjei1UOp7MhmxMleAAP7r4Le3t1W9/XVEs6am12kV2TDqHyYP9QIAAAA=",
+      "placeholder": true,
+      "widths": [
+        480,
+        960
+      ]
+    },
+    "siam-cw-08.jpg": {
+      "width": 960,
+      "height": 720,
+      "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAABwAwCdASoYABIAPu1ur1IppiQiqAgBMB2JaQC4qBZl0lIlzgAA/u/ApiT17VjGiIP3RCAVsUd7O86o0k7RBHyjAlAAAA==",
+      "placeholder": true,
+      "widths": [
+        480,
+        960
+      ]
+    },
+    "siam-cw-09.jpg": {
+      "width": 960,
+      "height": 720,
+      "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACQAwCdASoYABIAPu1ur1KppiQiqAgBMB2JZwDCgBZmHQQX2vAAAP7vxJftkY0DxeaczUzye163FgYm9DjgAA==",
+      "placeholder": true,
+      "widths": [
+        480,
+        960
+      ]
+    }
+  }
+}

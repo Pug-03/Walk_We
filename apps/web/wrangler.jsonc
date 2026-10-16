@@ -1,0 +1,11 @@
+{
+  // Walk We web app: the Vite build served as static assets on Workers.
+  // Deploy with scripts/deploy.sh (it builds with the AI proxy's URL first).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "walkwe-web",
+  "compatibility_date": "2026-10-12",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

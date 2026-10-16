@@ -1,0 +1,14 @@
+{
+  "name": "@walkwe/data",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Zod schemas (mirroring future PostGIS tables) and dataset loaders.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@walkwe/core": "*",
+    "zod": "^3.25.0"
+  }
+}

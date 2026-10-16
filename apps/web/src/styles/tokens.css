@@ -1,0 +1,116 @@
+/* ============ Walk We — design tokens ============
+   Palette after mentor-consultations.vercel.app (user pick, 15 Oct 2026):
+   near-black navy, indigo accent, cyan→violet glow; then semantic tokens
+   per theme. Components
+   use only the semantic names (--bg, --text, --primary-bg, …), never raw hex.
+   Contrast (checked in tokens.test.ts): key text ≥ 7:1, everything else
+   ≥ 4.5:1, in both themes. */
+
+:root {
+  --ink-950: #050b1a;
+  --ink-900: #0c152e;
+  --indigo-700: #3141bd;
+  --indigo-500: #5e7bff;
+  --periwinkle-300: #8fa3ff;
+  --mist-50: #f2f5ff;
+  /* Glow pair for gradients and highlights (never under body text). */
+  --cyan-400: #3cc8f2;
+  --violet-500: #6b5cff;
+  --lilac-300: #9d94ff;
+  --amber-500: #f5a524;
+  --red-500: #e5484d;
+  /* Text-bearing SOS surfaces: white on red-500 is only 3.9:1, so the button
+     face and countdown use this darker red (6.5:1); red-500 stays for the
+     ring and icons — same rule as indigo-500 vs indigo-700. */
+  --red-700: #b4232a;
+  --white: #ffffff;
+
+  /* Shape and depth — same radii as DeePer (cards 30, controls 22). */
+  --radius: 30px;
+  --radius-sm: 22px;
+  --radius-xs: 14px;
+  --radius-pill: 999px;
+  --shadow-1: 0 1px 2px rgb(5 11 26 / 0.08), 0 2px 8px rgb(5 11 26 / 0.06);
+  --shadow-2: 0 8px 28px -10px rgb(5 11 26 / 0.28);
+  --shadow-sheet: 0 -6px 30px -8px rgb(5 11 26 / 0.25);
+
+  /* Rhythm */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --tap: 48px; /* minimum touch target */
+
+  /* Motion: transform/opacity only, ≤ 300 ms. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 120ms;
+  --dur: 220ms;
+  --dur-slow: 300ms;
+
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+
+  --font: 'IBM Plex Sans Thai', 'Noto Sans Thai', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* Day and night share the reference site's dark UI (user, 15 Oct 2026);
+   the themes now differ in the map style and route colours, not the chrome.
+   Key text stays ≥ 7:1 on the dark surfaces, so it holds up in sunlight. */
+:root,
+[data-theme='day'] {
+  color-scheme: dark;
+  --bg: var(--ink-950);
+  --surface: var(--ink-900);
+  --surface-2: #15214a;
+  --text: #eef4ff;
+  --text-dim: #a3b4d6;
+  --heading: var(--periwinkle-300);
+  --primary-bg: var(--periwinkle-300);
+  --primary-text: var(--ink-950);
+  --accent: var(--periwinkle-300);
+  --border: rgb(120 160 235 / 0.2);
+  --focus: var(--cyan-400);
+  --shade-line: var(--indigo-500);
+  --sun-line: var(--amber-500);
+  --sos: var(--red-500);
+  --sos-bg: var(--red-700);
+  --scrim: rgb(0 0 0 / 0.55);
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-2: 0 8px 28px -10px rgb(0 0 0 / 0.6);
+  --shadow-sheet: 0 -6px 30px -8px rgb(0 0 0 / 0.6);
+}
+
+/* Night: near-black navy, periwinkle highlights (allowed on dark only). */
+[data-theme='night'] {
+  color-scheme: dark;
+  --bg: var(--ink-950);
+  --surface: var(--ink-900);
+  --surface-2: #15214a;
+  --text: #eef4ff;
+  --text-dim: #a3b4d6;
+  --heading: var(--periwinkle-300);
+  --primary-bg: var(--periwinkle-300);
+  --primary-text: var(--ink-950);
+  --accent: var(--periwinkle-300);
+  --border: rgb(120 160 235 / 0.2);
+  --focus: var(--cyan-400);
+  --shade-line: var(--periwinkle-300);
+  --sun-line: var(--amber-500);
+  --sos: var(--red-500);
+  --sos-bg: var(--red-700);
+  --scrim: rgb(0 0 0 / 0.55);
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-2: 0 8px 28px -10px rgb(0 0 0 / 0.6);
+  --shadow-sheet: 0 -6px 30px -8px rgb(0 0 0 / 0.6);
+}
+
+/* iPhone mockup screenshots (main.tsx, ?mockup=iphone). */
+html.mockup-iphone {
+  --safe-t: 59px;
+  --safe-b: 34px;
+}

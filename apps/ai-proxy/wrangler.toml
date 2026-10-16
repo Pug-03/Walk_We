@@ -1,0 +1,19 @@
+# Walk We AI proxy. Deploy: npx wrangler secret put ANTHROPIC_API_KEY, then npm run deploy.
+name = "walkwe-ai-proxy"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Exact origins of the web app; anything else gets 403.
+ALLOWED_ORIGINS = "https://walkwe-web.walkwe.workers.dev,http://localhost:5173,http://localhost:4173"
+
+# 20 requests per minute per client address and path.
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "2001"
+simple = { limit = 20, period = 60 }
+
+# Request bodies and prompts are never logged; keep observability to metrics.
+[observability]
+enabled = false

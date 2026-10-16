@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Walk We mark: a W drawn as one walking route that leaves the shade
+       (sky) and crosses into the sun (amber); the dot is the walker. -->
+  <rect width="512" height="512" rx="120" fill="#050B1A"/>
+  <path d="M256 216 L324 352 L408 168" fill="none" stroke="#9D94FF" stroke-width="52" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M104 168 L188 352 L256 216" fill="none" stroke="#3CC8F2" stroke-width="52" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="104" cy="168" r="34" fill="#EEF4FF"/>
+</svg>

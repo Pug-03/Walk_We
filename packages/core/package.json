@@ -1,0 +1,20 @@
+{
+  "name": "@walkwe/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Routing, shadow and scoring logic. Must run in Node: no DOM or UI dependencies.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./ai": "./src/ai/adapter.ts"
+  },
+  "dependencies": {
+    "@walkwe/config": "*",
+    "suncalc": "^1.9.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@turf/turf": "^7.4.0",
+    "@types/suncalc": "^1.9.2"
+  }
+}

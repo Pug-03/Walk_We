@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "id": "siam-centralworld",
+  "name": { "th": "สยาม ↔ เซ็นทรัลเวิลด์", "en": "Siam ↔ CentralWorld" },
+  "source": [
+    {
+      "name": "Walk We draft guide (geometry from the pilot walkway graph)",
+      "url": "https://www.openstreetmap.org/copyright",
+      "license": "ODbL-1.0 (geometry derived from OSM); text and photos © Walk We",
+      "notes": "Instructions are drafts written from the map and must be checked on site; photos are placeholders until replaced."
+    }
+  ],
+  "updatedAt": "2026-10-15T07:00:00+07:00",
+  "matchRadiusM": 150,
+  "stepToleranceM": 40,
+  "directions": [
+    {
+      "id": "siam-to-centralworld",
+      "from": { "name": { "th": "BTS สยาม", "en": "BTS Siam" }, "lat": 13.74563, "lng": 100.53412 },
+      "to": { "name": { "th": "เซ็นทรัลเวิลด์", "en": "CentralWorld" }, "lat": 13.7465769, "lng": 100.5390414 },
+      "steps": [
+        {
+          "photo": "siam-cw-01.jpg",
+          "caption": { "th": "ทางลงจากสถานี BTS สยาม", "en": "Stairs down from BTS Siam" },
+          "instruction": { "th": "ลงจากสถานี BTS สยาม มาที่ทางเท้าถนนพระรามที่ 1", "en": "Come down from BTS Siam to the Rama I sidewalk" },
+          "landmark": { "th": "สถานี BTS สยาม", "en": "BTS Siam station" },
+          "lat": 13.745574, "lng": 100.534179, "validHours": "24/7", "distanceM": 8, "verified": false
+        },
+        {
+          "photo": "siam-cw-02.jpg",
+          "caption": { "th": "ทางเท้าถนนพระรามที่ 1 ใต้รางรถไฟฟ้า", "en": "Rama I sidewalk under the BTS track" },
+          "instruction": { "th": "เลี้ยวขวา เดินตามถนนพระรามที่ 1 ใต้รางรถไฟฟ้า ผ่านแยกเฉลิมเผ่า", "en": "Turn right and follow Rama I under the BTS track, past Chaloem Phao junction" },
+          "landmark": { "th": "แยกเฉลิมเผ่า", "en": "Chaloem Phao junction" },
+          "lat": 13.745611, "lng": 100.534217, "validHours": "24/7", "distanceM": 392, "verified": false
+        },
+        {
+          "photo": "siam-cw-03.jpg",
+          "caption": { "th": "ทางเข้าลานหน้าเซ็นทรัลเวิลด์", "en": "Way into the CentralWorld forecourt" },
+          "instruction": { "th": "เลี้ยวซ้าย เข้าทางไปลานหน้าเซ็นทรัลเวิลด์", "en": "Turn left towards the CentralWorld forecourt" },
+          "landmark": { "th": "ป้ายเซ็นทรัลเวิลด์", "en": "CentralWorld sign" },
+          "lat": 13.745049, "lng": 100.53778, "validHours": "24/7", "distanceM": 137, "verified": false
+        },
+        {
+          "photo": "siam-cw-04.jpg",
+          "caption": { "th": "ลานหน้าห้าง", "en": "The forecourt" },
+          "instruction": { "th": "เลี้ยวขวา เดินอีกราว 50 เมตรถึงทางเข้าห้าง", "en": "Turn right; the entrance is about 50 m ahead" },
+          "landmark": { "th": "ทางเข้าเซ็นทรัลเวิลด์", "en": "CentralWorld entrance" },
+          "lat": 13.746271, "lng": 100.537981, "validHours": "24/7", "distanceM": 52, "verified": false
+        },
+        {
+          "photo": "siam-cw-05.jpg",
+          "caption": { "th": "ทางเข้าเซ็นทรัลเวิลด์", "en": "CentralWorld entrance" },
+          "instruction": { "th": "ถึงเซ็นทรัลเวิลด์แล้ว", "en": "You have arrived at CentralWorld" },
+          "landmark": { "th": "ประตูทางเข้าห้าง", "en": "Mall doors" },
+          "lat": 13.746241, "lng": 100.538459, "validHours": "Mo-Su 10:00-22:00", "distanceM": 0, "verified": false
+        }
+      ]
+    },
+    {
+      "id": "centralworld-to-siam",
+      "from": { "name": { "th": "เซ็นทรัลเวิลด์", "en": "CentralWorld" }, "lat": 13.7465769, "lng": 100.5390414 },
+      "to": { "name": { "th": "BTS สยาม", "en": "BTS Siam" }, "lat": 13.74563, "lng": 100.53412 },
+      "steps": [
+        {
+          "photo": "siam-cw-06.jpg",
+          "caption": { "th": "หน้าทางเข้าเซ็นทรัลเวิลด์", "en": "Outside the CentralWorld entrance" },
+          "instruction": { "th": "ออกจากห้าง เดินไปทางลานหน้าห้างราว 50 เมตร", "en": "Leave the mall and walk about 50 m across the forecourt" },
+          "landmark": { "th": "ทางเข้าเซ็นทรัลเวิลด์", "en": "CentralWorld entrance" },
+          "lat": 13.746241, "lng": 100.538459, "validHours": "24/7", "distanceM": 52, "verified": false
+        },
+        {
+          "photo": "siam-cw-07.jpg",
+          "caption": { "th": "ทางจากลานหน้าห้างออกถนน", "en": "From the forecourt to the road" },
+          "instruction": { "th": "เลี้ยวซ้าย เดินออกไปทางถนนพระรามที่ 1", "en": "Turn left towards Rama I road" },
+          "landmark": { "th": "ป้ายเซ็นทรัลเวิลด์", "en": "CentralWorld sign" },
+          "lat": 13.746271, "lng": 100.537981, "validHours": "24/7", "distanceM": 137, "verified": false
+        },
+        {
+          "photo": "siam-cw-08.jpg",
+          "caption": { "th": "ทางเท้าถนนพระรามที่ 1 มุ่งหน้าสยาม", "en": "Rama I sidewalk towards Siam" },
+          "instruction": { "th": "เลี้ยวขวา เดินตามถนนพระรามที่ 1 ใต้รางรถไฟฟ้า ผ่านแยกเฉลิมเผ่า", "en": "Turn right and follow Rama I under the BTS track, past Chaloem Phao junction" },
+          "landmark": { "th": "แยกเฉลิมเผ่า", "en": "Chaloem Phao junction" },
+          "lat": 13.745049, "lng": 100.53778, "validHours": "24/7", "distanceM": 400, "verified": false
+        },
+        {
+          "photo": "siam-cw-09.jpg",
+          "caption": { "th": "ทางขึ้นสถานี BTS สยาม", "en": "Way up to BTS Siam" },
+          "instruction": { "th": "ถึงสถานี BTS สยามแล้ว", "en": "You have arrived at BTS Siam" },
+          "landmark": { "th": "สถานี BTS สยาม", "en": "BTS Siam station" },
+          "lat": 13.745574, "lng": 100.534179, "validHours": "Mo-Su 05:15-24:00", "distanceM": 0, "verified": false
+        }
+      ]
+    }
+  ]
+}

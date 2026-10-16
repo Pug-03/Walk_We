@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env
+.env.local
+.DS_Store
+apps/web/test-results/
+apps/web/playwright-report/
+data/precomputed/
+review/
+
+# Wrangler local state
+.wrangler/

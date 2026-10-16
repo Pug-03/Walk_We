@@ -1,0 +1,21 @@
+{
+  "name": "@walkwe/ai-proxy",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare Worker that holds the Claude API key and forwards the two AI calls (route request parsing, route explanation) with rate limiting.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "check": "wrangler deploy --dry-run --outdir dist"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.134.0",
+    "@walkwe/core": "*",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261015.1",
+    "wrangler": "^4.151.0"
+  }
+}

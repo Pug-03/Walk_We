@@ -44,9 +44,17 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   void import('virtual:pwa-register').then(({ registerSW }) => {
     const update = registerSW({
       immediate: true,
-      // Only where nothing can be lost: the welcome page, no walk in progress.
+      // A new version takes over at once unless a walk is in progress (it
+      // then waits, so navigation is never reloaded mid-walk).
       onNeedRefresh: () => {
-        if ((location.pathname === '/welcome' || location.pathname === '/') && !loadSession()) void update(true);
+        if (!loadSession() && !location.pathname.startsWith('/navigate')) void update(true);
+      },
+      // Look for a new version whenever the app comes back to the front.
+      onRegisteredSW: (_url, reg) => {
+        if (!reg) return;
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'visible') void reg.update().catch(() => {});
+        });
       },
     });
   });

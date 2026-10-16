@@ -606,7 +606,18 @@ export default function Landing() {
               </span>
               <span className="welcome-chip">
                 <MapPin size={14} aria-hidden="true" />
-                {t('welcome.chip.pilot')}
+                {/* Breaks only between the two halves, never inside one ("5 / km"). */}
+                <span className="welcome-chip-text">
+                  {t('welcome.chip.pilot')
+                    .split(' · ')
+                    .map((part, i, all) => (
+                      <span key={i} className="nowrap">
+                        {part}
+                        {i < all.length - 1 ? ' ·' : ''}
+                      </span>
+                    ))
+                    .flatMap((el, i) => (i ? [' ', el] : [el]))}
+                </span>
               </span>
             </p>
           </div>

@@ -3934,6 +3934,7 @@ a {
   color: #d6dffb;
 }
 .welcome-chip svg { color: var(--cyan-400); flex: none; width: 17px; height: 17px; }
+.welcome-chip-text .nowrap { white-space: nowrap; }
 @media (min-width: 960px) {
   .welcome-chips {
     grid-column: 1 / -1;

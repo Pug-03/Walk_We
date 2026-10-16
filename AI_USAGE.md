@@ -90,10 +90,10 @@ The app works fully without AI:
 
 ## Keys, limits and logging
 
-- **API key:** the Claude API key lives only in the Cloudflare Worker (`apps/ai-proxy`) as a secret. It is never in the browser bundle.
+- **API key:** the Claude and ElevenLabs keys (`ANTHROPIC_API_KEY`, optional `ELEVENLABS_API_KEY`) live only in the Cloudflare Worker (`apps/ai-proxy`) as secrets. It is never in the browser bundle.
 - **Who can call the Worker:**
   - only listed origins (`ALLOWED_ORIGINS`);
-  - only `POST /parse` and `POST /explain`;
+  - only `POST /parse`, `POST /explain` and `POST /speak`;
   - request bodies capped at 4 KB;
   - 20 requests per minute per client (Workers Rate Limiting).
 - **Logging:** request bodies and prompts are never logged, and Worker observability is off.

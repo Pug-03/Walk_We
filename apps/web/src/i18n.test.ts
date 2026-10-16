@@ -12,7 +12,7 @@ describe('i18n', () => {
     expect(translate('en', 'nav.step', { n: 2, total: 4 })).toBe('Step 2/4');
   });
   it('never calls night routes simply "safe"', () => {
-    // Brief §7: always "safer (based on available data)", never "safe".
+    // Always "safer" / ปลอดภัยกว่า (comparative), never a bare "safe".
     // The noun "safety" / ความปลอดภัย and "unsafe" / ไม่ปลอดภัย are fine; a bare "safe" is not.
     for (const v of Object.values(STRINGS.en)) expect(v).not.toMatch(/\bsafe\b(?! *\()/i);
     for (const v of Object.values(STRINGS.th)) expect(v).not.toMatch(/(?<!ความ|ไม่)ปลอดภัย(?!กว่า)/);

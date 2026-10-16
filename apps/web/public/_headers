@@ -4,7 +4,8 @@
 # proxy (https:) — the AI Worker's own allow-list is the real gate there.
 # The sha256 is the theme script inlined in index.html: update it if that script changes.
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'sha256-ioJySx/qe6GI59GidNtxexjfbuhgXgRdaoqZLciWxO8='; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob:; font-src 'self' data:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'sha256-ioJySx/qe6GI59GidNtxexjfbuhgXgRdaoqZLciWxO8='; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org; media-src 'self' blob:; font-src 'self' data:; connect-src 'self' https://walkwe-ai-proxy.walkwe.workers.dev https://tiles.openfreemap.org https://photon.komoot.io https://api.open-meteo.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(self), microphone=(self), camera=(), payment=(), usb=()

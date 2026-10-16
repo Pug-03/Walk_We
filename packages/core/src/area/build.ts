@@ -174,7 +174,10 @@ export class Area {
 
   /** Shade of every segment of an edge for one sun position (memoised). */
   edgeShade(edge: number, sun: SunPosition): EdgeShade {
-    const key = `${sun.altitude.toFixed(2)}|${sun.azimuth.toFixed(2)}`;
+    // Half-degree buckets: the sun moves ~0.25°/min, so "now" reuses the
+    // cache for a couple of minutes instead of recomputing every route.
+    const half = (x: number) => (Math.round(x * 2) / 2).toFixed(1);
+    const key = `${half(sun.altitude)}|${half(sun.azimuth)}`;
     let bucket = this.shadeCache.get(key);
     if (!bucket) {
       bucket = new Map();

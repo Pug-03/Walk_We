@@ -40,6 +40,24 @@ const USABLE_ACCURACY_M = 60;
  * a big "I'm here" button (GPS is unreliable downtown, so the walker
  * advances), a map toggle, wake lock, and a light vibration per step.
  */
+/** sessionStorage that never throws (Safari with storage blocked). */
+const safeSession = {
+  get: (k: string) => {
+    try {
+      return sessionStorage.getItem(k);
+    } catch {
+      return null;
+    }
+  },
+  set: (k: string, v: string) => {
+    try {
+      sessionStorage.setItem(k, v);
+    } catch {
+      /* not remembered: prefetched again next time */
+    }
+  },
+};
+
 export default function Navigate() {
   const { t, lang } = useI18n();
   const desktop = useDesktop();
@@ -80,7 +98,7 @@ export default function Navigate() {
   useEffect(() => {
     if (!session) return;
     const key = `ww_prefetched_${session.id}`;
-    if (sessionStorage.getItem(key)) {
+    if (safeSession.get(key)) {
       setOfflineReady(true);
       return;
     }
@@ -93,7 +111,7 @@ export default function Navigate() {
         .then((m) => prefetchForRoute(line, photos, m, [env.mapStyle.day, env.mapStyle.night]))
         .then((r) => {
           if (r.ok > 0) {
-            sessionStorage.setItem(key, '1');
+            safeSession.set(key, '1');
             setOfflineReady(true);
           }
         })
@@ -114,12 +132,20 @@ export default function Navigate() {
   // Keep the screen on while navigating; re-acquire after the tab comes back.
   useEffect(() => {
     let release: (() => void) | null = null;
-    const acquire = () => platform.keepAwake().then((r) => (release = r));
+    let live = true;
+    // A lock that arrives after leaving is let go at once; a new one replaces the old.
+    const acquire = () =>
+      platform.keepAwake().then((r) => {
+        if (!live) return r();
+        release?.();
+        release = r;
+      });
     void acquire();
     const onVis = () => document.visibilityState === 'visible' && void acquire();
     document.addEventListener('visibilitychange', onVis);
     return () => {
       document.removeEventListener('visibilitychange', onVis);
+      live = false;
       release?.();
     };
   }, []);

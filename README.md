@@ -1,8 +1,23 @@
 # Walk We
 
-Mobile-first PWA that recommends walking routes in Bangkok: shadier by day,
-safer by night (based on available data). Structure and interactions follow
-DeePer (`~/Documents/Code/Dee_Per`); see `WALKWE_PROMPT_EN.md` for the brief.
+Mobile-first PWA that recommends walking routes in central Bangkok around Siam
+(walks up to 5 km): shadier by day, safer by night (based on available data).
+
+**Live:** https://walkwe-web.walkwe.workers.dev · Built for U-Hackathon 2026 (Track: AI) by team **FTXZ**:
+Nathaporn Saituptim (AI Engineer / Developer), Natsha Tatiyachaitaweesuk (Support / Marketing),
+Siriphanaphorn Sirikun (Developer).
+
+- **AI:** Claude (`claude-opus-5-5`) turns a typed or spoken sentence into a trip and explains the
+  chosen route from the computed numbers; ElevenLabs reads navigation aloud (the phone's own voice
+  is the fallback). Routes, shade and scores are computed by our own code. See `AI_USAGE.md`.
+- **Accessibility:** avoid stairs (step-free routing), read aloud, larger text, vibrate on each step.
+- **Safety:** SOS (hold 1 s, 5 s countdown) shares your location by SMS / LINE; contacts stay on the device.
+
+### License & attribution
+
+Map data © OpenStreetMap contributors (ODbL 1.0); the derived dataset `data/areas/siam.json` is
+ODbL. Fonts: IBM Plex Sans Thai (OFL 1.1). Sponsor and partner logos in `apps/web/public/sponsors/`
+are trademarks of their owners, shown only to credit U-Hackathon 2026 supporters.
 
 ## Layout
 

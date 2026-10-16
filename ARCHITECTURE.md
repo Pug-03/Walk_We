@@ -90,7 +90,7 @@ difference is the new permanent-shade layer (under BTS/expressway decks and tree
 ## Offline
 
 `vite-plugin-pwa` (Workbox) precaches the app shell, the pilot dataset, route guides and the
-incident register (~4 MB raw, **~1.1 MB gzip** — deploy behind a host that compresses JSON/JS).
+incident register (the area file alone is ~8.2 MB raw / **~1.3 MB gzip** — deploy behind a host that compresses JSON/JS).
 When navigation starts, `nav/prefetch.ts` warms caches for that route after the current step has
 loaded: every photo variant, both map styles with sprites and Thai/Latin glyphs, and vector tiles
 around the route. The walk in progress is persisted, so an offline reload resumes on the same step.
@@ -109,7 +109,7 @@ Lighthouse mobile (`npm run lighthouse`, simulated slow 4G + 4× CPU): every scr
 
 ## Scaling to the whole city
 
-The pilot covers ~3 × 2 km (12k edges, 5.7k buildings) and runs entirely on the phone. Bangkok
+The pilot covers central Bangkok around Siam, bbox [100.505, 13.725, 100.565, 13.768] (~6.5 × 4.8 km, ~11k walkways, ~33.6k buildings), walks capped at 5 km (`maxWalkM`), and runs entirely on the phone. Bangkok
 as a whole is roughly 300× larger, which changes where work happens, not the interfaces:
 
 1. **Data store.** Load OSM extracts into Postgres/PostGIS using the tables the Zod schemas

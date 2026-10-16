@@ -64,8 +64,8 @@ test('scheduled for the evening: night mode is picked and explained', async ({ p
   await page.getByTestId('find-routes').click();
 
   await expect(page.locator('.route-option').first()).toBeVisible({ timeout: 15_000 });
-  await expect(page.locator('.route-option').first()).toContainText(/ปลอดภัยกว่า \(ตามข้อมูลที่มี\)/);
-  await expect(page.getByText('ปลอดภัยกว่า (ตามข้อมูลที่มี) ไม่ใช่การรับประกัน')).toBeVisible();
+  await expect(page.locator('.route-option').first()).toContainText(/ปลอดภัยกว่า/);
+  await expect(page.getByText('ปลอดภัยกว่า ไม่ใช่การรับประกัน')).toBeVisible();
   // Malls close at 21:00–22:00: the router reports skipping them.
   await expect(page.getByText(/เลี่ยงห้างที่ปิดอยู่ตอนนั้น/)).toBeVisible();
 });

@@ -149,6 +149,7 @@ export default function Plan() {
 
   const backToOverview = useCallback(() => {
     setListenOnOpen(false);
+    setPendingFind(false); // a pending AI search never fires later, out of the blue
     setMode({ type: 'overview' });
     setQuery('');
     setSnap('half');

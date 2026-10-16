@@ -122,9 +122,12 @@ export function HowItWorks({ id }: { id?: string }) {
     io.observe(el);
     return () => io.disconnect();
   }, [near]);
+  // Re-render when a frame lands, as long as the section is mounted (not per
+  // scroll position: a held frame must move on even if the scroll stops).
+  const mounted = useRef(true);
+  useEffect(() => () => void (mounted.current = false), []);
   useEffect(() => {
-    if (!near) return undefined;
-    let live = true;
+    if (!near) return;
     // From the frame on screen (held or not) up past where the scroll wants to
     // be, so a held screen moves on step by step instead of jumping ahead.
     for (let k = i; k <= Math.min(n - 1, Math.max(want, i) + 40); k++) {
@@ -139,12 +142,9 @@ export function HowItWorks({ id }: { id?: string }) {
         .catch(() => decoded.add(url)) // a broken frame must not hold playback forever
         .finally(() => {
           pending.delete(url);
-          if (live) bump((x) => x + 1);
+          if (mounted.current) bump((x) => x + 1);
         });
     }
-    return () => {
-      live = false;
-    };
   }, [want, i, list, near]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (

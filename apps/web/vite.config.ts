@@ -79,14 +79,17 @@ export default defineConfig({
     // fetched — and prefetched for the whole route when navigation starts
     // (src/nav/prefetch.ts), so airplane mode mid-route keeps working.
     VitePWA({
-      registerType: 'autoUpdate',
+      // A new version waits instead of reloading the page by itself: a reload
+      // mid-SOS or mid-walk would lose that state. It applies on the next visit
+      // (main.tsx also applies it straight away on the welcome page).
+      registerType: 'prompt',
       injectRegister: false,
       manifest: false, // public/manifest.webmanifest is the source of truth
       workbox: {
         // Take control of the open page right away, so a first-time visitor
         // who starts navigating is covered without reloading.
         clientsClaim: true,
-        skipWaiting: true,
+        skipWaiting: false,
         globPatterns: ['**/*.{js,css,html,svg,png,woff2,mjs}', 'data/areas/*.json', 'data/routes/*.json', 'data/incidents/*.json', 'data/routes/photos/generated/manifest.json'],
         globIgnores: ['**/*-prototype.json'],
         // The walk graph (data/areas/siam.json, ~8.6 MB raw / ~1.5 MB gzip since the

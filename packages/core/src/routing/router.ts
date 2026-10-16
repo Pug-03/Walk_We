@@ -184,6 +184,9 @@ export class AreaRouter implements RoutingEngine {
         prof = { ...prof, w: prof.w / 2, wIncident: prof.wIncident / 2 };
       }
       if (!path) continue;
+      // A capped profile that still runs past its cap after backing off falls
+      // back to the shortest, rather than breaking its own promise.
+      if (Number.isFinite(p.maxStretch) && this.pathLength(path) > shortestLen * p.maxStretch) path = plain;
       const same = found.find((f) => samePath(f.path, path!));
       if (same) same.kinds.push(p.kind);
       else found.push({ kinds: [p.kind], path });

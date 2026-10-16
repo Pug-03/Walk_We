@@ -46,6 +46,7 @@ export function overpassQueries([w, s, e, n]: readonly [number, number, number, 
 }
 
 const r6 = (v: number) => Math.round(v * 1e6) / 1e6;
+const r5 = (v: number) => Math.round(v * 1e5) / 1e5;
 
 function num(v: string | undefined): number {
   if (v == null) return NaN;
@@ -194,7 +195,9 @@ export function normalise(roadsJson: OverpassResponse, shadeJson: OverpassRespon
     const flat = el.geometry.flatMap((g) => [r6(g.lat), r6(g.lon)]);
     if (t.building || t['building:part']) {
       if (flat.length < 8) continue;
-      buildings.push({ ...buildingHeight(t), ring: flat });
+      // Building outlines at ~1 m (5 decimals): plenty for shadows, and the
+      // biggest layer of the area file shrinks noticeably.
+      buildings.push({ ...buildingHeight(t), ring: el.geometry.flatMap((g) => [r5(g.lat), r5(g.lon)]) });
     } else if (t.man_made === 'canopy' || t.amenity === 'shelter') {
       if (flat.length < 8) continue;
       buildings.push({ h: 3.5, minH: 0, heightSource: 'default', ring: flat });

@@ -6,6 +6,7 @@ import Landing from './pages/Landing.tsx';
 // there), so it ships in the main bundle too; MapLibre stays a separate chunk.
 import Plan from './pages/Plan.tsx';
 import { SosButton } from './components/sos/SosButton.tsx';
+import { ScrollManager } from './components/ScrollManager.tsx';
 import { loadSession } from './nav/session.ts';
 import { hasOnboarded, resetFirstRun } from './store/onboarding.ts';
 import { hasDoneSetup } from './store/contacts.ts';
@@ -48,6 +49,7 @@ export default function App() {
   return (
     <>
       {/* SOS: top-right on the planner and navigation screens only (see SOS_SCREENS). */}
+      <ScrollManager />
       <SosButton />
     <Suspense fallback={<PageSkeleton />}>
       <Routes>

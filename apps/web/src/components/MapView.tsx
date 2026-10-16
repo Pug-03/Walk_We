@@ -200,6 +200,10 @@ export default function MapView({
     });
     mapRef.current = map;
     return () => {
+      // Markers belong to this map: drop them too, or a remount (StrictMode)
+      // would keep moving markers on the removed one.
+      for (const m of Object.values(markers.current)) m?.remove();
+      markers.current = {};
       map.remove();
       mapRef.current = null;
     };

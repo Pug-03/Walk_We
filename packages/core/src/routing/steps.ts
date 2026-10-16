@@ -78,9 +78,12 @@ export function buildSteps(area: Area, edges: number[], nodes: number[], sun: Su
   const merged: Group[] = [];
   for (const g of groups) {
     const prev = merged[merged.length - 1];
-    if (prev && g.len < FOLD_M && !g.name) {
+    // Short unnamed bits fold into the step before, but never stairs: a
+    // flight of steps is always its own step (wheelchair users must see it).
+    if (prev && g.len < FOLD_M && !g.name && !g.stairs) {
       prev.len += g.len;
       prev.endBearing = g.endBearing;
+      prev.covered ||= g.covered;
       continue;
     }
     // A named stretch split by a short connector keeps going as one step.

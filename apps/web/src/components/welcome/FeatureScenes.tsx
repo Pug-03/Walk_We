@@ -28,16 +28,6 @@ function Street({ night = false, x = -110, glow, dim = 1 }: { night?: boolean; x
   );
 }
 
-/** The cyan route along the pavement, drawing itself, with start and end. */
-function Route({ d, from, to }: { d: string; from: [number, number]; to: [number, number] }) {
-  return (
-    <>
-      <path d={d} className="scene-route" stroke={CYAN} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" fill="none" pathLength={1} style={{ filter: 'drop-shadow(0 0 6px rgb(60 200 242 / 0.7))' }} />
-      <circle cx={from[0]} cy={from[1]} r={5} fill={CYAN} />
-      <circle cx={to[0]} cy={to[1]} r={6} fill="#050b1a" stroke={CYAN} strokeWidth={2.5} />
-    </>
-  );
-}
 
 function Shade() {
   return (
@@ -46,7 +36,6 @@ function Shade() {
       {/* Today's sun path and the sun moving along it; the shade under the BTS is where the route goes. */}
       <path className="scene-dash" d="M30 120 Q200 -50 370 120" stroke={CYAN} strokeWidth={2} strokeDasharray="1 9" strokeLinecap="round" fill="none" />
       <image className="scene-sun" href="/art/sky-sun.svg" x={-16} y={-16} width={32} height={32} />
-      <Route d="M18 262 C90 262 120 256 200 256 S320 262 384 258" from={[18, 262]} to={[384, 258]} />
     </>
   );
 }
@@ -56,7 +45,6 @@ function Night() {
     <>
       <Street night glow="light" x={-160} />
       <image href="/art/sky-moon.svg" x={318} y={26} width={48} height={48} />
-      <Route d="M18 262 C90 262 140 258 200 258 S320 262 384 260" from={[18, 262]} to={[384, 260]} />
     </>
   );
 }

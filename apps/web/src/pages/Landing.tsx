@@ -579,7 +579,7 @@ export default function Landing() {
               <span className="tag-line">
                 {t('welcome.tag.nightPre')}
                 <em className="tag-key tag-key--night">{t('welcome.tag.night')}</em>
-                {t('welcome.tag.nightPost')} <span className="tag-note">{t('welcome.tag.note')}</span>
+                {t('welcome.tag.nightPost')}
               </span>
             </p>
           </div>

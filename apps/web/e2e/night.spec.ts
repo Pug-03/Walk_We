@@ -39,9 +39,9 @@ test('night: factors, safer-first card with a score, never a bare "safe"', async
   await page.getByTestId('find-routes').click();
   const first = page.locator('.route-option').first();
   await expect(first).toBeVisible({ timeout: 15_000 });
-  await expect(first).toContainText('ปลอดภัยกว่า (ตามข้อมูลที่มี)');
+  await expect(first).toContainText('ปลอดภัยกว่า');
   await expect(first).toContainText(/คะแนนความปลอดภัย \d+(\.\d)?\/10/);
-  await expect(page.getByText('ปลอดภัยกว่า (ตามข้อมูลที่มี) ไม่ใช่การรับประกัน')).toBeVisible();
+  await expect(page.getByText('ปลอดภัยกว่า ไม่ใช่การรับประกัน')).toBeVisible();
   // Malls close by 22:00; the router reports skipping them.
   await expect(page.getByText(/เลี่ยงห้างที่ปิดอยู่ตอนนั้น/)).toBeVisible();
 

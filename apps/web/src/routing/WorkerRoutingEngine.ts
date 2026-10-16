@@ -17,7 +17,7 @@ export class WorkerRoutingEngine implements RoutingEngine {
   readonly id = 'worker-area-astar';
   private worker: Worker | null = null;
   private seq = 0;
-  private pending = new Map<number, { resolve: (m: FromWorker) => void }>();
+  private pending = new Map<number, { resolve: (m: FromWorker) => void; reject: (e: Error) => void }>();
   private metaPromise: Promise<DatasetMeta> | null = null;
 
   private ensure(): Worker {
@@ -27,14 +27,26 @@ export class WorkerRoutingEngine implements RoutingEngine {
         this.pending.get(e.data.id)?.resolve(e.data);
         this.pending.delete(e.data.id);
       };
+      // A worker that fails to load or crashes (e.g. out of memory on an old
+      // phone) must not leave the planner spinning: fail every waiting call
+      // and start fresh next time.
+      const fail = () => {
+        for (const p of this.pending.values()) p.reject(new Error('routing worker failed'));
+        this.pending.clear();
+        this.worker?.terminate();
+        this.worker = null;
+        this.metaPromise = null;
+      };
+      this.worker.onerror = fail;
+      this.worker.onmessageerror = fail;
     }
     return this.worker;
   }
 
   private send(msg: WithoutId<ToWorker>): Promise<FromWorker> {
     const id = ++this.seq;
-    return new Promise((resolve) => {
-      this.pending.set(id, { resolve });
+    return new Promise((resolve, reject) => {
+      this.pending.set(id, { resolve, reject });
       this.ensure().postMessage({ ...msg, id } as ToWorker);
     });
   }

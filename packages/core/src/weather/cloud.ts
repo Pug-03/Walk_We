@@ -31,6 +31,10 @@ export class OpenMeteoCloud implements CloudCoverProvider {
     if (!hours) {
       hours = this.load(where, signal).catch(() => null);
       this.cache.set(key, hours);
+      // A failed forecast isn't kept: the next route tries again.
+      void hours.then((h) => {
+        if (!h) this.cache.delete(key);
+      });
     }
     const table = await hours;
     if (!table) return null;

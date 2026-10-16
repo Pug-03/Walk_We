@@ -56,7 +56,7 @@ export function parseOpeningHours(raw: string | null | undefined): OpeningHours 
     if (m[2] !== 'off' && m[2] !== 'closed') {
       for (const range of m[2]!.split(',')) {
         const [a, b] = range.trim().split('-');
-        const start = parseTime(a ?? ''), end0 = parseTime(b ?? '');
+        const start = parseTime((a ?? '').trim()), end0 = parseTime((b ?? '').trim());
         if (start == null || end0 == null) return null;
         spans.push([start, end0 <= start ? end0 + 1440 : end0]);
       }

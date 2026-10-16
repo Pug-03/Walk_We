@@ -41,7 +41,15 @@ if (loadSession()) {
 }
 // Offline support: the service worker exists only in production builds.
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
-  void import('virtual:pwa-register').then(({ registerSW }) => registerSW({ immediate: true }));
+  void import('virtual:pwa-register').then(({ registerSW }) => {
+    const update = registerSW({
+      immediate: true,
+      // Only where nothing can be lost: the welcome page, no walk in progress.
+      onNeedRefresh: () => {
+        if ((location.pathname === '/welcome' || location.pathname === '/') && !loadSession()) void update(true);
+      },
+    });
+  });
 }
 
 createRoot(document.getElementById('root')!).render(

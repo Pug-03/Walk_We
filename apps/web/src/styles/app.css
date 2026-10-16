@@ -4012,9 +4012,19 @@ a {
   content: '';
   position: absolute;
   left: 0;
-  top: 0;
+  top: -2px; /* overlaps the band's foot: one unbroken line */
   width: 3px;
-  border-radius: 2px;
+  border-radius: 0 0 2px 2px;
+}
+/* The band is a stretched SVG: keep its stroke the same 3 px as the list's
+   line, and centre its foot on that line, so the two join without a kink. */
+.route-band .route-walked,
+.route-band .route-track {
+  vector-effect: non-scaling-stroke;
+}
+.route-band .route-walked { stroke-width: 3; stroke-linecap: butt; }
+@media (max-width: 959px) {
+  .route-band svg { left: 1.5px; }
 }
 .features--list::before { bottom: 0; background: rgb(60 200 242 / 0.18); }
 .features--list::after {

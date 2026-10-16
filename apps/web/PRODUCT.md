@@ -20,7 +20,7 @@ Not a generic map: it routes by shade at the exact walk time and by night-time s
 
 ## Operating Context
 
-Mobile-first PWA, no sign-up or login. Thai by default, English available. Day and night themes (automatic by sun time, manual override). Pilot area: Siam – Ratchaprasong. Step-by-step navigation with real photos, works offline mid-route. SOS (hold 1 s, 5 s countdown) on the planner and navigation screens only (user decision, 15 Oct 2026), and location sharing over LINE/SMS. Emergency contacts and the user's own number are stored on the device only.
+Mobile-first PWA, no sign-up or login. Thai by default, English available. Day and night themes (automatic by sun time, manual override). Pilot area: central Bangkok around Siam (Ratchathewi–Sam Yan, Pathum Wan–Phloen Chit), walks up to 5 km. Accessibility: avoid stairs, read aloud, larger text, vibrate. Step-by-step navigation with real photos, works offline mid-route. SOS (hold 1 s, 5 s countdown) on the planner and navigation screens only (user decision, 15 Oct 2026), and location sharing over LINE/SMS. Emergency contacts and the user's own number are stored on the device only.
 
 ## Capabilities and Constraints
 

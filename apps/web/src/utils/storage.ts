@@ -20,7 +20,31 @@ function pick(): KeyValueStore {
     const probe = '__ww_probe__';
     ls.setItem(probe, '1');
     ls.removeItem(probe);
-    return ls;
+    // Writes can still fail later (quota full, private mode): never throw.
+    return {
+      getItem: (k) => {
+        try {
+          return ls.getItem(k);
+        } catch {
+          return memory.get(k) ?? null;
+        }
+      },
+      setItem: (k, v) => {
+        try {
+          ls.setItem(k, v);
+        } catch {
+          memory.set(k, v);
+        }
+      },
+      removeItem: (k) => {
+        memory.delete(k);
+        try {
+          ls.removeItem(k);
+        } catch {
+          /* gone from memory at least */
+        }
+      },
+    };
   } catch {
     return memoryStore;
   }

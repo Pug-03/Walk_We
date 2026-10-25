@@ -3417,16 +3417,14 @@ a {
   .sponsor-tile:hover img { transform: scale(1.06); }
 }
 .organizer { display: grid; gap: var(--space-3); margin-top: var(--space-8); }
+/* The event's own wordmark, cut from its poster (paper knocked out, black ink white). */
 .organizer-mark {
-  margin: 0;
-  font-size: clamp(30px, 3vw, 44px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  color: var(--white);
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin-top: var(--space-2);
 }
-.organizer-mark span { color: var(--cyan-400); }
-.organizer-mark small { font-size: 0.45em; font-weight: 600; letter-spacing: 0; color: var(--w-dim); }
 
 /* Foot: last call to start, then the team credit. */
 .foot-cta { display: grid; justify-items: center; gap: var(--space-4); margin-bottom: var(--space-8); }

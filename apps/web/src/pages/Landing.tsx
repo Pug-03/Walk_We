@@ -664,9 +664,15 @@ export default function Landing() {
             <p className="welcome-sub">{t('welcome.supporters.body')}</p>
             <div className="organizer">
               <p className="sponsor-kind">{t('welcome.supporters.organizer')}</p>
-              <p className="organizer-mark">
-                HACK<span>a</span>WORK <small>ทำยังไงให้เมือง WORK</small>
-              </p>
+              <img
+                className="organizer-mark"
+                src="/sponsors/hackawork.webp?v=1"
+                alt="HACKaWORK ทำยังไงให้เมือง WORK"
+                width={2278}
+                height={364}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </Reveal>
           <div className="welcome-section-body sponsor-groups">

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { useReducedMotion as useReducedMotionFM } from 'framer-motion';
 import { Accessibility, Camera, LockKeyhole, Moon, Siren, Sparkles, Sun, WifiOff, type LucideIcon } from 'lucide-react';
 import { env } from '../../env.ts';
@@ -88,13 +88,20 @@ export function RouteBand({ from, to, end = false }: { from: number; to: number;
   const live = useCrossing(ref, 'head');
   const p = still ? 1 : live;
   const pin = p;
+  const clip = useId();
   const x1 = from * 1000, x2 = to * 1000;
   const d = `M${x1} 0 C${x1} 60 ${x2} 40 ${x2} 100`;
+  // The curve only ever runs downward, so it is revealed by a clip that grows
+  // from the top with p. Not a pathLength dash: with non-scaling-stroke,
+  // Safari scales the dash wrongly and draws the line from the wrong end.
   return (
     <div ref={ref} className={`route-band${end ? ' route-band--end' : ''}`} aria-hidden="true" style={{ '--p': pin.toFixed(3) } as CSSProperties}>
       <svg viewBox="0 0 1000 100" preserveAspectRatio="none" focusable="false">
+        <clipPath id={clip}>
+          <rect x={-100} y={-10} width={1200} height={p >= 1 ? 120 : p * 100 + 10} />
+        </clipPath>
         <path d={d} className="route-track" />
-        <path d={d} className="route-walked" pathLength={1} style={{ strokeDashoffset: 1 - p }} />
+        <path d={d} className="route-walked" clipPath={`url(#${CSS.escape(clip)})`} />
       </svg>
       {end && <span className="route-end" style={{ left: `${to * 100}%` }} />}
     </div>

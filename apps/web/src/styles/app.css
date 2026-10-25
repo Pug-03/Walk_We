@@ -4005,7 +4005,7 @@ a {
 .route-band .route-track {
   vector-effect: non-scaling-stroke;
 }
-.route-band .route-walked { stroke-width: 3; stroke-linecap: butt; }
+.route-band .route-walked { stroke-width: 3; stroke-linecap: butt; stroke-dasharray: none; }
 @media (max-width: 959px) {
   .route-band svg { left: 1.5px; }
 }

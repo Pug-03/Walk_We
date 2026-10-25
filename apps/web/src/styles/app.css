@@ -3380,50 +3380,34 @@ a {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-3);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
 }
+@media (min-width: 600px) { .sponsor-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
 /* No tiles: the logos stand on the navy themselves (white paper knocked
-   out, black ink turned white in public/sponsors), each in a fixed box so
-   square and wide marks carry equal weight, with a soft glow behind. */
+   out, dark ink turned white in public/sponsors), each in a small fixed box
+   so square and wide marks carry equal weight. */
 .sponsor-tile {
   position: relative;
-  aspect-ratio: 16 / 9;
-}
-/* An odd last logo sits centred under the pair above it. */
-.sponsor-tile:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  justify-self: center;
-  width: calc((100% - var(--space-3)) / 2);
-}
-.sponsor-tile::before {
-  content: '';
-  position: absolute;
-  inset: 10%;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgb(60 200 242 / 0.14), transparent);
-  pointer-events: none;
+  aspect-ratio: 3 / 2;
 }
 .sponsor-tile img {
   position: absolute;
-  inset: 18% 10%;
-  width: 80%;
-  height: 64%;
+  inset: 12% 6%;
+  width: 88%;
+  height: 76%;
   object-fit: contain;
-  filter: drop-shadow(0 6px 18px rgb(0 0 0 / 0.5));
   transition: transform 0.35s var(--ease-out);
 }
 @media (hover: hover) {
   .sponsor-tile:hover img { transform: scale(1.06); }
 }
-.organizer { display: grid; gap: var(--space-3); margin-top: var(--space-8); }
+.organizer { display: grid; gap: var(--space-4); }
 /* The event's own wordmark, cut from its poster (paper knocked out, black ink white). */
 .organizer-mark {
   display: block;
   width: 100%;
-  max-width: 560px;
   height: auto;
-  margin-top: var(--space-2);
 }
 
 /* Foot: last call to start, then the team credit. */

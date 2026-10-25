@@ -495,11 +495,11 @@ function Stage({ now, scene }: { now: Date; scene: React.RefObject<HTMLElement |
   );
 }
 
-/** HACKaWORK sponsors (logos cut from the event poster, in public/sponsors). */
+/** HACKaWORK sponsors (official logos recoloured for the navy page, in public/sponsors). */
 const SPONSORS: Array<{ name: string; file: string }> = [
-  { name: 'กรุงเทพมหานคร (กทม)', file: 'bma.webp' },
-  { name: 'depa', file: 'depa.webp' },
-  { name: 'SET', file: 'set.webp' },
+  { name: 'กรุงเทพมหานคร (กทม)', file: 'bma.svg' },
+  { name: 'depa', file: 'depa.svg' },
+  { name: 'SET', file: 'set.svg' },
   { name: 'Thai Startup', file: 'thai-startup.webp' },
   { name: 'InnoSpace', file: 'innospace.webp' },
 ];
@@ -662,7 +662,10 @@ export default function Landing() {
               {t('welcome.supporters.title')}
             </h2>
             <p className="welcome-sub">{t('welcome.supporters.body')}</p>
-            <div className="organizer">
+          </Reveal>
+          {/* The event leads, big; its sponsors follow in one small row. */}
+          <div className="welcome-section-body sponsor-groups">
+            <Reveal className="organizer">
               <p className="sponsor-kind">{t('welcome.supporters.organizer')}</p>
               <img
                 className="organizer-mark"
@@ -673,15 +676,13 @@ export default function Landing() {
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-          </Reveal>
-          <div className="welcome-section-body sponsor-groups">
-            <Reveal className="sponsor-group">
+            </Reveal>
+            <Reveal className="sponsor-group" delay={0.1}>
               <h3 className="sponsor-kind">{t('welcome.supporters.sponsors')}</h3>
               <ul className="sponsor-grid">
                 {SPONSORS.map((it) => (
                   <li key={it.file} className="sponsor-tile">
-                    <img src={`/sponsors/${it.file}?v=4`} alt={it.name} loading="lazy" decoding="async" />
+                    <img src={`/sponsors/${it.file}?v=5`} alt={it.name} loading="lazy" decoding="async" />
                   </li>
                 ))}
               </ul>

@@ -7,7 +7,6 @@ import { LangToggle } from '../components/LangToggle.tsx';
 import { LogoMark } from '../components/Logo.tsx';
 import { TLink } from '../components/TLink.tsx';
 import { hasDoneSetup } from '../store/contacts.ts';
-import type { StringKey } from '../i18n.ts';
 import { useI18n } from '../store/i18n.tsx';
 import { markOnboarded } from '../store/onboarding.ts';
 import { TEAM } from '../team.ts';
@@ -496,33 +495,13 @@ function Stage({ now, scene }: { now: Date; scene: React.RefObject<HTMLElement |
   );
 }
 
-/** U-Hackathon 2026 organisers; roles only where the source gives one. */
-const ORGANIZERS: Array<{ name: string; role?: string; photo: string }> = [
-  { name: 'Kyle Kemper', role: 'President, u‑topia', photo: 'kyle.webp' },
-  { name: 'Emmanuel Quezada', photo: 'emmanuel.webp' },
-];
-
-/** U-Hackathon 2026 sponsors and technology partners (logos in public/sponsors). */
-const SPONSOR_GROUPS: Array<{ key: 'sponsors' | 'partners'; items: Array<{ name: string; file: string }> }> = [
-  {
-    key: 'sponsors',
-    items: [
-      { name: 'yellow', file: 'yellow.webp' },
-      { name: 'DCT', file: 'dct.webp' },
-      { name: 'Contribution DAO', file: 'contribution-dao.webp' },
-      { name: 'CUBS', file: 'cubs.webp' },
-      { name: 'HooRay!', file: 'hooray.webp' },
-      { name: 'team1 Thailand', file: 'team1.webp' },
-    ],
-  },
-  {
-    key: 'partners',
-    items: [
-      { name: 'Avalanche', file: 'avalanche.webp' },
-      { name: 'Tokenomist', file: 'tokenomist.webp' },
-      { name: 'ElevenLabs', file: 'elevenlabs.webp' },
-    ],
-  },
+/** HACKaWORK sponsors (logos cut from the event poster, in public/sponsors). */
+const SPONSORS: Array<{ name: string; file: string }> = [
+  { name: 'กรุงเทพมหานคร (กทม)', file: 'bma.webp' },
+  { name: 'depa', file: 'depa.webp' },
+  { name: 'SET', file: 'set.webp' },
+  { name: 'Thai Startup', file: 'thai-startup.webp' },
+  { name: 'InnoSpace', file: 'innospace.webp' },
 ];
 
 export default function Landing() {
@@ -675,47 +654,32 @@ export default function Landing() {
           </div>
         </section>
 
-        {/* The event's sponsors and technology partners, by kind. Walk We was
-            built at U-Hackathon 2026; this thanks the event's backers and
-            claims no endorsement or integration beyond that. */}
+        {/* The event's sponsors. Walk We takes part in HACKaWORK; this thanks
+            the event's backers and claims no endorsement or integration beyond that. */}
         <section className="welcome-section sponsors" aria-labelledby="sponsors-title">
           <Reveal className="welcome-section-head">
             <h2 className="welcome-h2" id="sponsors-title">
               {t('welcome.supporters.title')}
             </h2>
             <p className="welcome-sub">{t('welcome.supporters.body')}</p>
-            {/* The organisers (photos from the event's shared folder). */}
             <div className="organizer">
               <p className="sponsor-kind">{t('welcome.supporters.organizer')}</p>
               <p className="organizer-mark">
-                <span>U-Hackathon</span> 2026 <small>by u‑topia</small>
+                HACK<span>a</span>WORK <small>ทำยังไงให้เมือง WORK</small>
               </p>
-              <ul className="organizer-people">
-                {ORGANIZERS.map((o) => (
-                  <li key={o.name}>
-                    <img src={`/sponsors/${o.photo}?v=2`} alt="" width={120} height={120} loading="lazy" decoding="async" />
-                    <span>
-                      <strong>{o.name}</strong>
-                      {o.role && <span>{o.role}</span>}
-                    </span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </Reveal>
           <div className="welcome-section-body sponsor-groups">
-            {SPONSOR_GROUPS.map((g, gi) => (
-              <Reveal key={g.key} className={`sponsor-group sponsor-group--${g.key}`} delay={0.1 * gi}>
-                <h3 className="sponsor-kind">{t(`welcome.supporters.${g.key}` as StringKey)}</h3>
-                <ul className="sponsor-grid">
-                  {g.items.map((it) => (
-                    <li key={it.name} className="sponsor-tile">
-                      <img src={`/sponsors/${it.file}?v=3`} alt={it.name} loading="lazy" decoding="async" />
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            ))}
+            <Reveal className="sponsor-group">
+              <h3 className="sponsor-kind">{t('welcome.supporters.sponsors')}</h3>
+              <ul className="sponsor-grid">
+                {SPONSORS.map((it) => (
+                  <li key={it.file} className="sponsor-tile">
+                    <img src={`/sponsors/${it.file}?v=4`} alt={it.name} loading="lazy" decoding="async" />
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
           </div>
         </section>
       </div>

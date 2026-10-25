@@ -16,8 +16,8 @@ Siriphanaphorn Sirikun (Developer).
 ### License & attribution
 
 Map data © OpenStreetMap contributors (ODbL 1.0); the derived dataset `data/areas/siam.json` is
-ODbL. Fonts: IBM Plex Sans Thai (OFL 1.1). Sponsor and partner logos in `apps/web/public/sponsors/`
-are trademarks of their owners, shown only to credit U-Hackathon 2026 supporters.
+ODbL. Fonts: IBM Plex Sans Thai (OFL 1.1). Sponsor logos in `apps/web/public/sponsors/`
+are trademarks of their owners, shown only to credit HACKaWORK sponsors.
 
 ## Layout
 

@@ -3358,9 +3358,7 @@ a {
   font-weight: 700;
   color: var(--white);
 }
-/* ---------- Sponsors (Landing.tsx SPONSOR_GROUPS) ----------
-   Real logos on light tiles so every brand reads in its own colours on the
-   navy page; sponsors get the bigger tiles, partners the row below. */
+/* ---------- Sponsors (Landing.tsx SPONSORS) ---------- */
 /* A clear break after the team: a new section, not more of the list. */
 .welcome-section.sponsors { margin-top: 72px; padding-top: var(--space-8); border-top: 1px solid var(--w-line); }
 @media (min-width: 960px) { .welcome-section.sponsors { margin-top: 120px; padding-top: 56px; } }
@@ -3392,6 +3390,12 @@ a {
   position: relative;
   aspect-ratio: 16 / 9;
 }
+/* An odd last logo sits centred under the pair above it. */
+.sponsor-tile:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc((100% - var(--space-3)) / 2);
+}
 .sponsor-tile::before {
   content: '';
   position: absolute;
@@ -3409,8 +3413,6 @@ a {
   filter: drop-shadow(0 6px 18px rgb(0 0 0 / 0.5));
   transition: transform 0.35s var(--ease-out);
 }
-.sponsor-group--partners .sponsor-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.sponsor-group--partners .sponsor-tile img { inset: 26% 10%; width: 80%; height: 48%; }
 @media (hover: hover) {
   .sponsor-tile:hover img { transform: scale(1.06); }
 }
@@ -3425,20 +3427,6 @@ a {
 }
 .organizer-mark span { color: var(--cyan-400); }
 .organizer-mark small { font-size: 0.45em; font-weight: 600; letter-spacing: 0; color: var(--w-dim); }
-/* Organisers get the most room in the section: big portraits, big names. */
-.organizer-people { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: grid; gap: var(--space-6); }
-.organizer-people li { display: flex; align-items: center; gap: var(--space-5); }
-.organizer-people img {
-  flex: none;
-  width: clamp(96px, 9vw, 132px);
-  height: clamp(96px, 9vw, 132px);
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 0 3px var(--cyan-400), 0 0 0 9px rgb(60 200 242 / 0.14), 0 18px 40px -14px rgb(60 200 242 / 0.8);
-}
-.organizer-people span { display: grid; gap: 2px; }
-.organizer-people strong { font-size: clamp(22px, 2vw, 28px); line-height: 1.2; color: var(--white); }
-.organizer-people li span span { font-size: 16px; color: var(--cyan-400); font-weight: 600; }
 
 /* Foot: last call to start, then the team credit. */
 .foot-cta { display: grid; justify-items: center; gap: var(--space-4); margin-bottom: var(--space-8); }

@@ -10,6 +10,7 @@ import { ScrollManager } from './components/ScrollManager.tsx';
 import { loadSession } from './nav/session.ts';
 import { hasOnboarded, resetFirstRun } from './store/onboarding.ts';
 import { hasDoneSetup } from './store/contacts.ts';
+import { useFullscreenKey } from './utils/useFullscreenKey.ts';
 
 // Landing ships in the main bundle so first visits paint fast; the rest are
 // chunks (same split as DeePer). The map library is a further chunk inside
@@ -46,6 +47,7 @@ function PageSkeleton() {
 
 export default function App() {
   useEffect(preloadPages, []);
+  useFullscreenKey();
   return (
     <>
       {/* SOS: top-right on the planner and navigation screens only (see SOS_SCREENS). */}

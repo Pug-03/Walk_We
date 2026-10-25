@@ -3,7 +3,7 @@
 Mobile-first PWA that recommends walking routes in central Bangkok around Siam
 (walks up to 5 km): shadier by day, safer by night (based on available data).
 
-**Live:** https://walkwe-web.walkwe.workers.dev · Built for U-Hackathon 2026 (Track: AI) by team **FTXZ**:
+**Live:** https://walkwe-web.walkwe.workers.dev · Built for U-Hackathon 2026 (Track: AI) by team **หมูกรอบกับหมาไส้กรอกตะลุยอวกาศ**:
 Krittithee Kankanpinchote (AI Engineer / Developer), Natsha Tatiyachaitaweesuk (Support / Marketing),
 Siriphanaphorn Sirikun (Team Lead / Viewer / Developer).
 

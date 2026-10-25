@@ -703,7 +703,7 @@ export default function Landing() {
             </button>
           </div>
           <p className="foot-credit">
-            <span className="foot-credit-by">Presented by team</span> <strong>FTXZ</strong>
+            <span className="foot-credit-by">Presented by team</span> <strong>หมูกรอบกับหมาไส้กรอกตะลุยอวกาศ</strong>
           </p>
           <p className="foot-names">Krittithee Kankanpinchote · Natsha Tatiyachaitaweesuk · Siriphanaphorn Sirikun</p>
           <p className="foot-small">

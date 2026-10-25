@@ -4,8 +4,8 @@ Mobile-first PWA that recommends walking routes in central Bangkok around Siam
 (walks up to 5 km): shadier by day, safer by night (based on available data).
 
 **Live:** https://walkwe-web.walkwe.workers.dev · Built for U-Hackathon 2026 (Track: AI) by team **FTXZ**:
-Nathaporn Saituptim (AI Engineer / Developer), Natsha Tatiyachaitaweesuk (Support / Marketing),
-Siriphanaphorn Sirikun (Developer).
+Krittithee Kankanpinchote (AI Engineer / Developer), Natsha Tatiyachaitaweesuk (Support / Marketing),
+Siriphanaphorn Sirikun (Team Lead / Viewer / Developer).
 
 - **AI:** Claude (`claude-opus-5-5`) turns a typed or spoken sentence into a trip and explains the
   chosen route from the computed numbers; ElevenLabs reads navigation aloud (the phone's own voice

@@ -15,8 +15,8 @@ export interface TeamMember {
 
 export const TEAM: TeamMember[] = [
   {
-    nameTh: 'ณฐพร ไทรทับทิม',
-    nameEn: 'Nathaporn Saituptim',
+    nameTh: 'กฤติธี กาญจนาปิ่นโชติ',
+    nameEn: 'Krittithee Kankanpinchote',
     roleTh: 'AI Engineer / Developer',
     roleEn: 'AI Engineer / Developer',
     avatar: nathapornPhoto,
@@ -29,10 +29,10 @@ export const TEAM: TeamMember[] = [
     avatar: natshaPhoto,
   },
   {
-    nameTh: 'ศริพนาพร ศิริกุล',
+    nameTh: 'ศิริพนาพร ศิริกุล',
     nameEn: 'Siriphanaphorn Sirikun',
-    roleTh: 'Developer',
-    roleEn: 'Developer',
+    roleTh: 'Team Lead / Viewer / Developer',
+    roleEn: 'Team Lead / Viewer / Developer',
     avatar: siriphanaphornPhoto,
   },
 ];

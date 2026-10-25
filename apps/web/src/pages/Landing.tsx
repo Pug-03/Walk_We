@@ -705,7 +705,7 @@ export default function Landing() {
           <p className="foot-credit">
             <span className="foot-credit-by">Presented by team</span> <strong>FTXZ</strong>
           </p>
-          <p className="foot-names">Nathaporn Saituptim · Natsha Tatiyachaitaweesuk · Siriphanaphorn Sirikun</p>
+          <p className="foot-names">Krittithee Kankanpinchote · Natsha Tatiyachaitaweesuk · Siriphanaphorn Sirikun</p>
           <p className="foot-small">
             <TLink to="/privacy">{t('privacy.link')}</TLink> · © 2569 Walk We
           </p>
